@@ -8,35 +8,70 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* MASSIVE Trading Cards Design System */
+    
+    /* Core Colors - Midnight + Neon Purple Theme */
+    --primary-700: 256 20% 8%;      /* #1a1625 - dark backgrounds, header */
+    --primary-600: 256 20% 12%;     /* slightly lighter primary */
+    --accent-500: 258 90% 66%;      /* #8b5cf6 - primary buttons, CTAs */
+    --accent-400: 256 91% 73%;      /* #a78bfa - hover states, sale tags */
+    --neutral-200: 220 13% 91%;     /* #e5e7eb - borders, dividers */
+    --neutral-50: 220 14% 96%;      /* #f9fafb - page background */
+    
+    /* Semantic Color Mapping */
+    --background: var(--neutral-50);
+    --foreground: var(--primary-700);
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: var(--primary-700);
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
+    --popover-foreground: var(--primary-700);
+    
+    --primary: var(--accent-500);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 100%;
+    --secondary-foreground: var(--primary-700);
+    
+    --muted: var(--neutral-50);
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    
+    --accent: var(--accent-400);
+    --accent-foreground: 0 0% 100%;
+    
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: var(--neutral-200);
+    --input: var(--neutral-200);
+    --ring: var(--accent-400);
+    
+    --radius: 0.75rem;  /* 12px for cards and inputs */
+    
+    /* Custom Design Tokens */
+    --header-bg: var(--primary-700);
+    --hero-gradient: linear-gradient(135deg, hsl(var(--primary-700)), hsl(var(--accent-500)));
+    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Typography Scale */
+    --text-xs: 0.75rem;    /* 12px */
+    --text-sm: 0.875rem;   /* 14px */
+    --text-base: 1rem;     /* 16px - body text */
+    --text-lg: 1.125rem;   /* 18px - heading 5 */
+    --text-xl: 1.25rem;    /* 20px - heading 4 */
+    --text-2xl: 1.5rem;    /* 24px - heading 3 */
+    --text-3xl: 2rem;      /* 32px - heading 1-2 */
+    
+    /* Spacing Scale */
+    --space-1: 0.25rem;    /* 4px */
+    --space-2: 0.5rem;     /* 8px */
+    --space-3: 0.75rem;    /* 12px */
+    --space-4: 1rem;       /* 16px */
+    --space-6: 1.5rem;     /* 24px */
+    --space-8: 2rem;       /* 32px */
+    --space-12: 3rem;      /* 48px */
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +135,42 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground border border-border px-6 py-2 rounded-xl font-medium hover:bg-muted transition-all duration-300;
+  }
+  
+  /* Product Card */
+  .product-card {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg border border-border;
+    box-shadow: var(--card-shadow);
+  }
+  
+  /* Typography Utilities */
+  .heading-1 { @apply text-3xl font-bold leading-tight; }
+  .heading-2 { @apply text-3xl font-bold leading-tight; }
+  .heading-3 { @apply text-2xl font-semibold leading-tight; }
+  .heading-4 { @apply text-xl font-semibold leading-snug; }
+  .heading-5 { @apply text-lg font-medium leading-snug; }
+  .body-text { @apply text-base leading-relaxed; }
+  .caption { @apply text-sm leading-normal; }
+  
+  /* Layout Utilities */
+  .container-main {
+    @apply max-w-6xl mx-auto px-4;
+  }
+  
+  /* Focus States */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
   }
 }
