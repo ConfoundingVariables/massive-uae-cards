@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ShoppingCart, Star } from 'lucide-react';
 import { Badge } from './Badge';
 import { Price } from './Price';
@@ -26,38 +27,50 @@ export const ProductCard = ({
   reviewCount,
   inStock
 }: ProductCardProps) => {
+  // TODO: Generate proper product URLs from product data
+  const productUrl = `/product/${id}`;
+
   return (
     <div className="product-card group relative">
       {/* Image Container */}
-      <div className="relative aspect-square overflow-hidden rounded-t-xl">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        
-        {/* Badge */}
-        {badge && (
-          <div className="absolute top-3 left-3">
-            <Badge variant={badge} />
-          </div>
-        )}
+      <Link to={productUrl} className="block">
+        <div className="relative aspect-square overflow-hidden rounded-t-xl">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          
+          {/* Badge */}
+          {badge && (
+            <div className="absolute top-3 left-3">
+              <Badge variant={badge} />
+            </div>
+          )}
+        </div>
+      </Link>
 
-        {/* Quick Add to Cart */}
-        <button
-          className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white shadow-lg"
-          disabled={!inStock}
-          aria-label="Add to cart"
-        >
-          <ShoppingCart size={16} className="text-primary-700" />
-        </button>
-      </div>
+      {/* Quick Add to Cart - positioned outside the link */}
+      <button
+        className="absolute bottom-[140px] right-3 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white shadow-lg"
+        disabled={!inStock}
+        aria-label="Add to cart"
+        onClick={(e) => {
+          e.preventDefault();
+          // TODO: Implement quick add to cart functionality
+          console.log('Quick add to cart:', id);
+        }}
+      >
+        <ShoppingCart size={16} className="text-primary-700" />
+      </button>
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="heading-5 text-primary-700 mb-2 line-clamp-2 group-hover:text-accent-500 transition-colors">
-          {title}
-        </h3>
+        <Link to={productUrl}>
+          <h3 className="heading-5 text-primary-700 mb-2 line-clamp-2 group-hover:text-accent-500 transition-colors">
+            {title}
+          </h3>
+        </Link>
 
         {/* Rating */}
         {rating && (

@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { ProductCard } from './ProductCard';
 import productCard1 from '@/assets/product-card-1.jpg';
 
-// Mock product data
+// TODO: Replace with actual product data from API/CMS
+// TODO: Add filtering by category, availability, etc.
 const products = [
   {
     id: '1',

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
+// TODO: Connect to admin CMS for dynamic announcement management
 const announcements = [
   "🚚 Free shipping on orders AED 100+ across UAE",
   "✅ 100% Authenticity Guaranteed on all products",

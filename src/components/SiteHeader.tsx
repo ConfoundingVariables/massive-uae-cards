@@ -6,6 +6,10 @@ import { MobileDrawer } from './MobileDrawer';
 export const SiteHeader = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // TODO: Connect to user authentication system
+  // TODO: Connect to cart state management  
+  // TODO: Implement search functionality
 
   return (
     <header className="bg-header-bg text-white sticky top-0 z-50 shadow-lg">

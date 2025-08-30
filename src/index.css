@@ -10,32 +10,34 @@ All colors MUST be HSL.
   :root {
     /* MASSIVE Trading Cards Design System */
     
-    /* Core Colors - Midnight + Neon Purple Theme */
-    --primary-700: 256 20% 8%;      /* #1a1625 - dark backgrounds, header */
-    --primary-600: 256 20% 12%;     /* slightly lighter primary */
+    /* Core Colors - Dark + Neon Purple Theme */
+    --primary-900: 256 20% 6%;      /* #151219 - darkest backgrounds */
+    --primary-800: 256 20% 8%;      /* #1a1625 - main dark background */
+    --primary-700: 256 20% 12%;     /* #252030 - cards, elevated surfaces */
+    --primary-600: 256 20% 16%;     /* #302940 - lighter surfaces */
     --accent-500: 258 90% 66%;      /* #8b5cf6 - primary buttons, CTAs */
     --accent-400: 256 91% 73%;      /* #a78bfa - hover states, sale tags */
-    --neutral-200: 220 13% 91%;     /* #e5e7eb - borders, dividers */
-    --neutral-50: 220 14% 96%;      /* #f9fafb - page background */
+    --neutral-200: 220 13% 25%;     /* #3d4043 - borders, dividers (dark theme) */
+    --neutral-100: 220 14% 85%;     /* #d6d8da - light text on dark */
     
     /* Semantic Color Mapping */
-    --background: var(--neutral-50);
-    --foreground: var(--primary-700);
+    --background: var(--primary-800);
+    --foreground: var(--neutral-100);
     
-    --card: 0 0% 100%;
-    --card-foreground: var(--primary-700);
+    --card: var(--primary-700);
+    --card-foreground: var(--neutral-100);
     
-    --popover: 0 0% 100%;
-    --popover-foreground: var(--primary-700);
+    --popover: var(--primary-700);
+    --popover-foreground: var(--neutral-100);
     
     --primary: var(--accent-500);
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 0 0% 100%;
-    --secondary-foreground: var(--primary-700);
+    --secondary: var(--primary-600);
+    --secondary-foreground: var(--neutral-100);
     
-    --muted: var(--neutral-50);
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--primary-600);
+    --muted-foreground: 220 14% 65%;
     
     --accent: var(--accent-400);
     --accent-foreground: 0 0% 100%;
@@ -50,9 +52,9 @@ All colors MUST be HSL.
     --radius: 0.75rem;  /* 12px for cards and inputs */
     
     /* Custom Design Tokens */
-    --header-bg: var(--primary-700);
-    --hero-gradient: linear-gradient(135deg, hsl(var(--primary-700)), hsl(var(--accent-500)));
-    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --header-bg: var(--primary-900);
+    --hero-gradient: linear-gradient(135deg, hsl(var(--primary-800)), hsl(var(--accent-500)));
+    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Typography Scale */
